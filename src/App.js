@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
 import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
 import ListItemCheckbox from "./components/ListItemCheckbox";
+import { getTodos } from "./api/todos";
 
 function App() {
+  const [todos, setTodos] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      const todos = await getTodos();
+      setTodos(todos);
+    };
+    getData();
+  }, []);
+
   return (
     <div className="app">
       <header className="app__header">
