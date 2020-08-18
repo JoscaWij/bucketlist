@@ -25,11 +25,13 @@ function App() {
       </header>
       <main className="app__main">
         <List>
-          <ListItem>
-            <ListItemIcon />
-            <ListItemText />
-            <ListItemCheckbox />
-          </ListItem>
+          {todos?.map((todo) => (
+            <ListItem key={todo.id}>
+              <ListItemIcon />
+              <ListItemText title={todo.title} date={todo.date} />
+              <ListItemCheckbox />
+            </ListItem>
+          ))}
         </List>
       </main>
       <footer className="app__footer">Footer</footer>
