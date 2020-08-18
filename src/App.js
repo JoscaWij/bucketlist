@@ -3,6 +3,8 @@ import "./App.css";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
 import ListItemIcon from "./components/ListItemIcon";
+import ListItemText from "./components/ListItemText";
+import ListItemCheckbox from "./components/ListItemCheckbox";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <List>
           <ListItem>
             <ListItemIcon />
+            <ListItemText />
+            <ListItemCheckbox />
           </ListItem>
         </List>
       </main>
