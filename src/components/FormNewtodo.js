@@ -20,9 +20,7 @@ function FormNewtodo({ onButtonClick }) {
         <input id="title" placeholder="Title"></input>
         <label>Date for task</label>
         <input placeholder="Date in TT.MM.JJ"></input>
-        <button
-        /* onClick={onButtonClick()} */
-        >
+        <button onClick={onButtonClick}>
           <Link to="/todos">Create new task</Link>
         </button>
       </form>

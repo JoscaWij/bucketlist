@@ -27,16 +27,16 @@ function App() {
     getData();
   }, []);
 
-  /*   const handleSubmit = () => {
+  const handleSubmit = () => {
     const createToDo = async () => {
       const newTodo = await createTodos();
       console.log(newTodo);
       setTodos(newTodo);
     };
     createToDo();
-  }; */
+  };
 
-  const handleSubmit = (query) => {
+  /*   const handleSubmit = (query) => {
     setFormInput(query);
     const createToDo = async () => {
       const newTodo = await createTodos(forminput);
@@ -44,7 +44,7 @@ function App() {
       setTodos(newTodo);
     };
     createToDo();
-  };
+  }; */
 
   return (
     <Router>
@@ -70,7 +70,8 @@ function App() {
             <Route path="/newtodo">
               <FormNewtodo
                 value={forminput}
-                onButtonClick={(value) => handleSubmit(value)}
+                /* onButtonClick={(value) => handleSubmit(value)} */
+                onButtonClick={() => handleSubmit()}
               />
             </Route>
             <Route path="/">
