@@ -1,3 +1,6 @@
 {
-  "wantTodos": []
+  "todos": [
+    { "id": 1, "title": "Swimming", "date": "18.08.2020" },
+    { "id": 2, "title": "Cleaning", "date": "19.08.2020" }
+  ]
 }
