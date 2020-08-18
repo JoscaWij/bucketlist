@@ -25,14 +25,14 @@ function App() {
     getData();
   }, []);
 
-  const handleClick = () => {
+  /*   const handleClick = () => {
     const createToDo = async () => {
       const newTodo = await createTodos();
       console.log(newTodo);
       setTodos(newTodo);
     };
     createToDo();
-  };
+  }; */
 
   return (
     <Router>
@@ -64,7 +64,7 @@ function App() {
           </Switch>
         </main>
         <footer className="app__footer">
-          <ButtonPlus onClick={() => handleClick()} />
+          <ButtonPlus /* onClick={() => handleClick()} */ />
         </footer>
       </div>
     </Router>
