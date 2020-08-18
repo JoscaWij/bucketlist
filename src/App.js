@@ -17,7 +17,7 @@ import FormNewtodo from "./components/FormNewtodo";
 
 function App() {
   const [todos, setTodos] = useState(null);
-  const [forminput, setFormInput] = useState(null);
+  /*  const [forminput, setFormInput] = useState(null); */
 
   useEffect(() => {
     const getData = async () => {
@@ -69,7 +69,7 @@ function App() {
             </Route>
             <Route path="/newtodo">
               <FormNewtodo
-                value={forminput}
+                /* value={forminput} */
                 /* onButtonClick={(value) => handleSubmit(value)} */
                 onButtonClick={() => handleSubmit()}
               />
