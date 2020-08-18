@@ -2,15 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function FormNewtodo({ onButtonClick }) {
+  /*   let inputvalues;
+
+  const titleinput = document.getElementById("title");
+  console.log(titleinput); */
+  /* const title = titleinput.value
+  
+  let forminput = {title: {title}, date: {date}}
+  */
+
   return (
     <div>
       <button>Back (ohne funct.)</button>
-      <form>
+      <form /* onSubmit={(event) => console.log(event.target.values)} */>
         <label>Title:</label>
-        <input placeholder="Title"></input>
+        <input id="title" placeholder="Title"></input>
         <label>Date for task</label>
         <input placeholder="Date in TT.MM.JJ"></input>
-        <button onClick={onButtonClick}>
+        <button
+        /* onClick={onButtonClick()} */
+        >
           <Link to="/todos">Create new task</Link>
         </button>
       </form>

@@ -26,3 +26,23 @@ export const createTodos = async () => {
 
   return currenttodos;
 };
+
+/* with query */
+
+/* export const createTodos = async (query) => {
+  const addtodo = await fetch("http://localhost:3333/todos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(query),
+  });
+  if (!addtodo.ok) {
+    throw addtodo;
+  }
+
+  const currenttodos = await getTodos();
+  console.log(currenttodos);
+
+  return currenttodos;
+}; */

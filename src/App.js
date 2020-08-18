@@ -17,6 +17,7 @@ import FormNewtodo from "./components/FormNewtodo";
 
 function App() {
   const [todos, setTodos] = useState(null);
+  const [forminput, setFormInput] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -26,7 +27,7 @@ function App() {
     getData();
   }, []);
 
-  /*   const handleClick = () => {
+  /*   const handleSubmit = () => {
     const createToDo = async () => {
       const newTodo = await createTodos();
       console.log(newTodo);
@@ -34,6 +35,16 @@ function App() {
     };
     createToDo();
   }; */
+
+  const handleSubmit = (query) => {
+    setFormInput(query);
+    const createToDo = async () => {
+      const newTodo = await createTodos(forminput);
+      console.log(newTodo);
+      setTodos(newTodo);
+    };
+    createToDo();
+  };
 
   return (
     <Router>
@@ -57,7 +68,10 @@ function App() {
               </List>
             </Route>
             <Route path="/newtodo">
-              <FormNewtodo onButtonClick={() => alert("form submitted")} />
+              <FormNewtodo
+                value={forminput}
+                onButtonClick={(value) => handleSubmit(value)}
+              />
             </Route>
             <Route path="/">
               <Redirect to="/todos" />
