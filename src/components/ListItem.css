@@ -1,0 +1,20 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid lightgrey;
+  text-decoration: none;
+}
+
+.listItem > :first-child {
+  margin: 0 5px;
+}
+
+.listItem > :last-child {
+  margin: 0 15px;
+}
+
+.listItem h3 {
+  margin: 0;
+}
