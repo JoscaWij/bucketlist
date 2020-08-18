@@ -13,6 +13,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import FormNewtodo from "./components/FormNewtodo";
 
 function App() {
   const [todos, setTodos] = useState(null);
@@ -56,7 +57,7 @@ function App() {
               </List>
             </Route>
             <Route path="/newtodo">
-              <div>NewToDo</div>
+              <FormNewtodo />
             </Route>
             <Route path="/">
               <Redirect to="/todos" />
