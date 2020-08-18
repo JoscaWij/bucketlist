@@ -5,7 +5,7 @@ import ListItem from "./components/ListItem";
 import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
 import ListItemCheckbox from "./components/ListItemCheckbox";
-import { getTodos } from "./api/todos";
+import { getTodos, createTodos } from "./api/todos";
 import ButtonPlus from "./components/ButtonPlus";
 
 function App() {
@@ -13,11 +13,20 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const todos = await getTodos();
-      setTodos(todos);
+      const existingtodos = await getTodos();
+      setTodos(existingtodos);
     };
     getData();
   }, []);
+
+  const handleClick = () => {
+    const createToDo = async () => {
+      const newTodo = await createTodos();
+      console.log(newTodo);
+      setTodos(newTodo);
+    };
+    createToDo();
+  };
 
   return (
     <div className="app">
@@ -26,17 +35,19 @@ function App() {
       </header>
       <main className="app__main">
         <List>
-          {todos?.map((todo) => (
-            <ListItem key={todo.id}>
-              <ListItemIcon />
-              <ListItemText title={todo.title} date={todo.date} />
-              <ListItemCheckbox />
-            </ListItem>
-          ))}
+          {todos?.map((todo) => {
+            return (
+              <ListItem key={todo.id}>
+                <ListItemIcon />
+                <ListItemText title={todo.title} date={todo.date} />
+                <ListItemCheckbox />
+              </ListItem>
+            );
+          })}
         </List>
       </main>
       <footer className="app__footer">
-        <ButtonPlus />
+        <ButtonPlus onClick={() => handleClick()} />
       </footer>
     </div>
   );
