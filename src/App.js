@@ -6,6 +6,7 @@ import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
 import ListItemCheckbox from "./components/ListItemCheckbox";
 import { getTodos } from "./api/todos";
+import ButtonPlus from "./components/ButtonPlus";
 
 function App() {
   const [todos, setTodos] = useState(null);
@@ -34,7 +35,9 @@ function App() {
           ))}
         </List>
       </main>
-      <footer className="app__footer">Footer</footer>
+      <footer className="app__footer">
+        <ButtonPlus />
+      </footer>
     </div>
   );
 }
