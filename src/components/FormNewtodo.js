@@ -1,13 +1,13 @@
 import React from "react";
 
-function FormNewtodo() {
+function FormNewtodo({ onButtonClick }) {
   return (
     <form>
       <label>Title:</label>
       <input placeholder="Title"></input>
       <label>Date for task</label>
       <input placeholder="Date in TT.MM.JJ"></input>
-      <button>Create new task</button>
+      <button onClick={onButtonClick}>Create new task</button>
     </form>
   );
 }

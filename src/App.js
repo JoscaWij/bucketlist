@@ -57,7 +57,7 @@ function App() {
               </List>
             </Route>
             <Route path="/newtodo">
-              <FormNewtodo />
+              <FormNewtodo onButtonClick={() => alert("form submitted")} />
             </Route>
             <Route path="/">
               <Redirect to="/todos" />
