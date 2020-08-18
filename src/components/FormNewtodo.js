@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function FormNewtodo({ onButtonClick }) {
   /*   let inputvalues;
@@ -10,10 +10,11 @@ function FormNewtodo({ onButtonClick }) {
   
   let forminput = {title: {title}, date: {date}}
   */
+  const history = useHistory();
 
   return (
     <div>
-      <button>Back (ohne funct.)</button>
+      <button onClick={() => history.goBack()}>go back</button>
       <form /* onSubmit={(event) => console.log(event.target.values)} */>
         <label>Title:</label>
         <input id="title" placeholder="Title"></input>
