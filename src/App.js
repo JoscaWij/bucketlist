@@ -19,14 +19,14 @@ function App() {
     getData();
   }, []);
 
-  const handleClick = /* useEffect( */ () => {
+  const handleClick = () => {
     const createToDo = async () => {
       const newTodo = await createTodos();
       console.log(newTodo);
       setTodos(newTodo);
     };
     createToDo();
-  }; /* [todos]); */
+  };
 
   return (
     <div className="app">
