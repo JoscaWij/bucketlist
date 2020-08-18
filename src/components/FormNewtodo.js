@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function FormNewtodo({ onButtonClick }) {
   return (
@@ -7,7 +8,9 @@ function FormNewtodo({ onButtonClick }) {
       <input placeholder="Title"></input>
       <label>Date for task</label>
       <input placeholder="Date in TT.MM.JJ"></input>
-      <button onClick={onButtonClick}>Create new task</button>
+      <button onClick={onButtonClick}>
+        <Link to="/todos">Create new task</Link>
+      </button>
     </form>
   );
 }
