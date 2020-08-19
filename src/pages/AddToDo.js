@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormNewToDo from "../components/FormNewToDo";
 import { useHistory, Link } from "react-router-dom";
+import { createTodos } from "../api/todos";
 
 function AddToDo() {
   const history = useHistory();
@@ -10,9 +11,15 @@ function AddToDo() {
 
   console.log(title, date);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    alert("Submitted" + title + date);
+    alert("created new task: " + title + " " + date);
+    await createTodos({
+      title,
+      date,
+    });
+    setTitle("");
+    setDate("");
   }
 
   return (

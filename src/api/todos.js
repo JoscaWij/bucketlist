@@ -9,13 +9,13 @@ export const getTodos = async () => {
   return result;
 };
 
-export const createTodos = async () => {
+export const createTodos = async (todo) => {
   const addtodo = await fetch("http://localhost:3333/todos", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ title: "New", date: "now" }),
+    body: JSON.stringify(todo),
   });
   if (!addtodo.ok) {
     throw addtodo;
