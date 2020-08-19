@@ -21,10 +21,12 @@ export const createTodos = async () => {
     throw addtodo;
   }
 
-  const currenttodos = await getTodos();
+  return addtodo;
+
+  /*   const currenttodos = await getTodos();
   console.log(currenttodos);
 
-  return currenttodos;
+  return currenttodos; */
 };
 
 /* with query */
