@@ -1,24 +1,31 @@
 import React from "react";
+import "./FormNewToDo.css";
 
 function FormNewtodo({ onTitleChange, onDateChange, handleOnSubmit }) {
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form className="form-newtodo" onSubmit={handleOnSubmit}>
       <label>
-        Title:
+        What do you need to do?
         <input
+          className="form-newtodo_input"
           onChange={(event) => onTitleChange(event.target.value)}
           id="title"
           placeholder="Title"
         />
       </label>
       <label>
-        Date for task
+        Date
         <input
+          className="form-newtodo_input"
           onChange={(event) => onDateChange(event.target.value)}
-          placeholder="Date in TT.MM.JJ"
+          placeholder="Date"
         />
       </label>
-      <input value="create new task" type="submit" />
+      <input
+        className="form-newtodo_submit"
+        value="create new task"
+        type="submit"
+      />
     </form>
   );
 }

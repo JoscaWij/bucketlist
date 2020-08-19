@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormNewToDo from "../components/FormNewToDo";
 import { useHistory, Link } from "react-router-dom";
 import { createTodos } from "../api/todos";
+import "./AddToDo.css";
 
 function AddToDo() {
   const history = useHistory();
@@ -23,14 +24,18 @@ function AddToDo() {
   }
 
   return (
-    <div>
-      <button onClick={() => history.goBack()}>go back</button>
+    <div className="addtodoPage">
+      <button className="btn-goback" onClick={() => history.goBack()}>
+        go back
+      </button>
       <FormNewToDo
         onTitleChange={(query) => setTitle(query)}
         onDateChange={(query) => setDate(query)}
         handleOnSubmit={handleSubmit}
       ></FormNewToDo>
-      <Link to="/todos">Task overview</Link>
+      <Link className="link-goto" to="/todos">
+        Task overview
+      </Link>
     </div>
   );
 }
