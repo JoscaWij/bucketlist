@@ -8,18 +8,27 @@ function AddToDo() {
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
-
-  console.log(title, date);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    alert("created new task: " + title + " " + date);
-    await createTodos({
-      title,
-      date,
-    });
-    setTitle("");
-    setDate("");
+    setError(false);
+    setLoading(true);
+
+    try {
+      await createTodos({
+        title,
+        date,
+      });
+      setTitle("");
+      setDate("");
+    } catch (error) {
+      console.error(error);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -33,7 +42,7 @@ function AddToDo() {
           <input
             className="form-newtodo_input"
             onChange={(event) => setTitle(event.target.value)}
-            id="title"
+            value={title}
             placeholder="Title"
           />
         </label>
@@ -41,6 +50,7 @@ function AddToDo() {
           Date
           <input
             className="form-newtodo_input"
+            value={date}
             onChange={(event) => setDate(event.target.value)}
             placeholder="Date"
           />
@@ -49,9 +59,10 @@ function AddToDo() {
           className="form-newtodo_submit"
           value="create new task"
           type="submit"
-          disabled={!title || !date}
+          disabled={!title || !date || loading}
         />
       </form>
+      {error && <p>Something went wrong. Please try again later</p>}
       <Link className="link-goto" to="/todos">
         Task overview
       </Link>
