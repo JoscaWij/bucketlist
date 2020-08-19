@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import FormNewToDo from "../components/FormNewToDo";
 import { useHistory, Link } from "react-router-dom";
 import { createTodos } from "../api/todos";
 import "./AddToDo.css";
@@ -28,11 +27,31 @@ function AddToDo() {
       <button className="btn-goback" onClick={() => history.goBack()}>
         go back
       </button>
-      <FormNewToDo
-        onTitleChange={(query) => setTitle(query)}
-        onDateChange={(query) => setDate(query)}
-        handleOnSubmit={handleSubmit}
-      ></FormNewToDo>
+      <form className="form-newtodo" onSubmit={handleSubmit}>
+        <label>
+          What do you need to do?
+          <input
+            className="form-newtodo_input"
+            onChange={(event) => setTitle(event.target.value)}
+            id="title"
+            placeholder="Title"
+          />
+        </label>
+        <label>
+          Date
+          <input
+            className="form-newtodo_input"
+            onChange={(event) => setDate(event.target.value)}
+            placeholder="Date"
+          />
+        </label>
+        <input
+          className="form-newtodo_submit"
+          value="create new task"
+          type="submit"
+          disabled={!title || !date}
+        />
+      </form>
       <Link className="link-goto" to="/todos">
         Task overview
       </Link>
