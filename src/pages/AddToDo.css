@@ -1,0 +1,61 @@
+.addtodoPage {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  padding: 0.4em;
+}
+
+.btn-goback,
+.link-goto {
+  background: var(--highlightColor);
+  border-style: none;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.3em 0.7em;
+  text-decoration: none;
+  width: 10em;
+  text-align: center;
+}
+
+.form-newtodo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-newtodo > label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.form-newtodo_input {
+  width: 30em;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 1em 1.4em;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.7em;
+  margin: 1em;
+}
+
+.form-newtodo_submit {
+  background: var(--highlightColor);
+  border-style: none;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.8em 1.4em;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bolder;
+  transition: 0.5s;
+}
+
+.form-newtodo_submit:hover {
+  background: darkblue;
+}
