@@ -7,9 +7,9 @@ const ImgBtn = styled.button`
   border-style: none;
   background: none;
   position: relative;
-  bottom: 1.5em;
-  margin: 0 auto;
-  width: 100%;
+  bottom: 2em;
+  left: 50%;
+  transform: translate(-50%);
 `;
 
 function ButtonPlus() {
