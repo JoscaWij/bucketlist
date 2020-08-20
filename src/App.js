@@ -1,4 +1,3 @@
-/* import "./App.css"; */
 import React from "react";
 
 import ButtonPlus from "./components/ButtonPlus";
@@ -42,7 +41,7 @@ function App() {
               <ToDos />
             </Route>
             <Route path="/newtodo">
-              <AddToDo /* onSubmit={(input) => handleData(input)} */ />
+              <AddToDo />
             </Route>
             <Route path="/">
               <Redirect to="/todos" />
