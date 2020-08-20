@@ -20,11 +20,7 @@ const Container = styled.a`
 `;
 
 function ListItem({ children, href }) {
-  return (
-    <Container className="listItem" href={href}>
-      {children}
-    </Container>
-  );
+  return <Container href={href}>{children}</Container>;
 }
 
 export default ListItem;

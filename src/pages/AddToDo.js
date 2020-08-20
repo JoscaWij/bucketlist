@@ -91,14 +91,11 @@ function AddToDo() {
 
   return (
     <AddToDoPage className="addtodoPage">
-      <Button className="btn-goback" onClick={() => history.goBack()}>
-        go back
-      </Button>
-      <Form className="form-newtodo" onSubmit={handleSubmit}>
+      <Button onClick={() => history.goBack()}>go back</Button>
+      <Form onSubmit={handleSubmit}>
         <FormLabel>
           What do you need to do?
           <FormInput
-            className="form-newtodo_input"
             onChange={(event) => setTitle(event.target.value)}
             value={title}
             placeholder="Title"
@@ -107,7 +104,6 @@ function AddToDo() {
         <FormLabel>
           Date
           <FormInput
-            className="form-newtodo_input"
             type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
@@ -115,7 +111,6 @@ function AddToDo() {
           />
         </FormLabel>
         <SubmitBtn
-          className="form-newtodo_submit"
           value="create new task"
           type="submit"
           disabled={!title || !date || loading}
@@ -123,9 +118,7 @@ function AddToDo() {
       </Form>
       {error && <p>Something went wrong. Please try again later</p>}
       <BtnLink>
-        <Link className="link-goto" to="/todos">
-          Task overview
-        </Link>
+        <Link to="/todos">Task overview</Link>
       </BtnLink>
     </AddToDoPage>
   );

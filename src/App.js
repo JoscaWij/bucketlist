@@ -32,11 +32,11 @@ function App() {
 
   return (
     <Router>
-      <App className="app">
-        <Header className="app__header">
+      <App>
+        <Header>
           <h2>To Do-Manager</h2>
         </Header>
-        <main className="app__main">
+        <main>
           <Switch>
             <Route path="/todos">
               <ToDos />
@@ -49,7 +49,7 @@ function App() {
             </Route>
           </Switch>
         </main>
-        <Footer className="app__footer">
+        <Footer>
           <ButtonPlus />
         </Footer>
       </App>
