@@ -50,6 +50,7 @@ function AddToDo() {
           Date
           <input
             className="form-newtodo_input"
+            type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
             placeholder="Date"
