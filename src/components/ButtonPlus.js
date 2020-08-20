@@ -1,14 +1,19 @@
 import React from "react";
 import buttonImgSrc from "../assets/plusBtn.svg";
-import "./ButtonPlus.css";
 import { Link } from "react-router-dom";
+import styled from "@emotion/styled";
 
-function ButtonPlus({ onClick }) {
+const imgBtn = styled.button`
+  border-style: none;
+  background: none;
+`;
+
+function ButtonPlus() {
   return (
     <Link to="/newtodo">
-      <button className="buttonPlus" /* onClick={onClick} */>
+      <imgBtn className="buttonPlus">
         <img src={buttonImgSrc} alt="Button that creates new element" />
-      </button>
+      </imgBtn>
     </Link>
   );
 }
