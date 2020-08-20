@@ -1,4 +1,4 @@
-import "./App.css";
+/* import "./App.css"; */
 import React from "react";
 
 import ButtonPlus from "./components/ButtonPlus";
@@ -10,14 +10,32 @@ import {
 } from "react-router-dom";
 import ToDos from "./pages/ToDos";
 import AddToDo from "./pages/AddToDo";
+import styled from "@emotion/styled";
 
 function App() {
+  const App = styled.div`
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+  `;
+
+  const Header = styled.header`
+    background: var(--highlightColor);
+    color: #fff;
+    padding-left: 2em;
+  `;
+
+  const Footer = styled.footer`
+    box-shadow: 0px -10px 20px #a3a3a3;
+    padding-left: 2em;
+  `;
+
   return (
     <Router>
-      <div className="app">
-        <header className="app__header">
+      <App className="app">
+        <Header className="app__header">
           <h2>To Do-Manager</h2>
-        </header>
+        </Header>
         <main className="app__main">
           <Switch>
             <Route path="/todos">
@@ -31,10 +49,10 @@ function App() {
             </Route>
           </Switch>
         </main>
-        <footer className="app__footer">
+        <Footer className="app__footer">
           <ButtonPlus />
-        </footer>
-      </div>
+        </Footer>
+      </App>
     </Router>
   );
 }
