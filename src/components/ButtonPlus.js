@@ -6,15 +6,19 @@ import styled from "@emotion/styled";
 const ImgBtn = styled.button`
   border-style: none;
   background: none;
+  position: relative;
+  bottom: 1.5em;
+  margin: 0 auto;
+  width: 100%;
 `;
 
 function ButtonPlus() {
   return (
-    <Link to="/newtodo">
-      <ImgBtn className="buttonPlus">
+    <ImgBtn>
+      <Link to="/newtodo">
         <img src={buttonImgSrc} alt="Button that creates new element" />
-      </ImgBtn>
-    </Link>
+      </Link>
+    </ImgBtn>
   );
 }
 
