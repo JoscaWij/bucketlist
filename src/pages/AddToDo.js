@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { createTodos } from "../api/todos";
-import "./AddToDo.css";
+import Button from "../components/Button";
+import styled from "@emotion/styled";
 
 function AddToDo() {
   const history = useHistory();
@@ -31,43 +32,102 @@ function AddToDo() {
     }
   }
 
+  const AddToDoPage = styled.div`
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    padding: 0.4em;
+  `;
+
+  const SubmitBtn = styled.input`
+    background: var(--highlightColor);
+    border-style: none;
+    color: #fff;
+    border-radius: 20px;
+    padding: 0.8em 1.4em;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bolder;
+    transition: 0.5s;
+
+    :hover {
+      background: darkblue;
+    }
+  `;
+
+  const FormInput = styled.input`
+    width: 30em;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 1em 1.4em;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.7em;
+    margin: 1em;
+  `;
+
+  const FormLabel = styled.label`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  `;
+
+  const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  `;
+
+  const BtnLink = styled(Button)`
+    Link {
+      text-decoration: none;
+      color: #fff;
+    }
+  `;
+
   return (
-    <div className="addtodoPage">
-      <button className="btn-goback" onClick={() => history.goBack()}>
+    <AddToDoPage className="addtodoPage">
+      <Button className="btn-goback" onClick={() => history.goBack()}>
         go back
-      </button>
-      <form className="form-newtodo" onSubmit={handleSubmit}>
-        <label>
+      </Button>
+      <Form className="form-newtodo" onSubmit={handleSubmit}>
+        <FormLabel>
           What do you need to do?
-          <input
+          <FormInput
             className="form-newtodo_input"
             onChange={(event) => setTitle(event.target.value)}
             value={title}
             placeholder="Title"
           />
-        </label>
-        <label>
+        </FormLabel>
+        <FormLabel>
           Date
-          <input
+          <FormInput
             className="form-newtodo_input"
             type="date"
             value={date}
             onChange={(event) => setDate(event.target.value)}
             placeholder="Date"
           />
-        </label>
-        <input
+        </FormLabel>
+        <SubmitBtn
           className="form-newtodo_submit"
           value="create new task"
           type="submit"
           disabled={!title || !date || loading}
         />
-      </form>
+      </Form>
       {error && <p>Something went wrong. Please try again later</p>}
-      <Link className="link-goto" to="/todos">
-        Task overview
-      </Link>
-    </div>
+      <BtnLink>
+        <Link className="link-goto" to="/todos">
+          Task overview
+        </Link>
+      </BtnLink>
+    </AddToDoPage>
   );
 }
 
